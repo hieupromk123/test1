@@ -21,7 +21,7 @@ public class MapsDAO  implements Constant {
     public void insertMaps(Maps maps) {
         SQLiteDatabase sqLiteDatabase = databaseManager.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_ID,maps.id);
+//        contentValues.put(COLUMN_ID,maps.id);
         contentValues.put(COLUMN_LAT, maps.lat);
         contentValues.put(COLUMN_LNG,maps.lng);
 
@@ -40,18 +40,18 @@ public class MapsDAO  implements Constant {
         SQLiteDatabase sqLiteDatabase = databaseManager.getWritableDatabase();
 
         Cursor cursor = sqLiteDatabase.query(TABLE_Maps,
-                new String[]{COLUMN_ID, COLUMN_LAT, COLUMN_LNG},
-                COLUMN_ID + "=?",
+                new String[]{ COLUMN_LAT, COLUMN_LNG},
+                COLUMN_LAT + "=?",
                 new String[]{map}, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
 
-            String id = cursor.getString(cursor.getColumnIndex(COLUMN_ID));
-            String lat = cursor.getString(cursor.getColumnIndex(COLUMN_LAT));
-            String lng = cursor.getString(cursor.getColumnIndex(COLUMN_LNG));
+//            String id = cursor.getString(cursor.getColumnIndex(COLUMN_ID));
+            double lat = cursor.getDouble(cursor.getColumnIndex(COLUMN_LAT));
+            double lng = cursor.getDouble(cursor.getColumnIndex(COLUMN_LNG));
 
             maps = new Maps();
-            maps.setId(id);
+//            maps.setId(id);
             maps.setLat(lat);
             maps.setLng(lng);
         }
@@ -74,12 +74,12 @@ public class MapsDAO  implements Constant {
 
 
             do {
-                String id = cursor.getString(cursor.getColumnIndex(COLUMN_ID));
-                String lat = cursor.getString(cursor.getColumnIndex(COLUMN_LAT));
-                String lng = cursor.getString(cursor.getColumnIndex(COLUMN_LNG));
+//                String id = cursor.getString(cursor.getColumnIndex(COLUMN_ID));
+                double lat = cursor.getDouble(cursor.getColumnIndex(COLUMN_LAT));
+                double lng = cursor.getDouble(cursor.getColumnIndex(COLUMN_LNG));
 
                 Maps maps = new Maps();
-                maps.setId(id);
+//                maps.setId(id);
                 maps.setLat(lat);
                 maps.setLng(lng);
 

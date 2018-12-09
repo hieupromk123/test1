@@ -1,40 +1,32 @@
 package com.dev.hieu.map.model;
 
 public class Maps {
-    public String id;
-    public String lat;
-    public String lng;
+//    public String id;
+    public double lat;
+    public double lng;
 
-    public Maps(String id, String lat, String lng) {
-        this.id = id;
+    public Maps(double lat, double lng) {
         this.lat = lat;
         this.lng = lng;
     }
-    public Maps() {
+
+    public  Maps() {
 
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public String getLng() {
+    public double getLng() {
         return lng;
     }
 
-    public void setLng(String lng) {
+    public void setLng(double lng) {
         this.lng = lng;
     }
 }
